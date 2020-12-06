@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h2>Transferable course matches: </h2>
+<p>selected School:{{ schoolname }}</p>
+<div class="selectschool">
+
+    <select>
+    <option disabled="true" ,unique="true" selected>--Select State--</option>
+    {% for school in object_list %}
+      <option value="{{school.state_name}}">{{school.state_name}}</option>
+      {%endfor%}
+  </select>
+  <form action="">
+    <select>
+      <option disabled="true" ,unique="true" selected>--Select School from the DropDown--</option>
+      {% for school in object_list %}
+        <option value="{{school.school_name}}">{{school.school_name}}</option>
+        {%endfor%}
+
+  </select>
+  <input type="submit" value="Go"/>
+</form>
+</div>
+
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>subject_number</th>
+      <th>Course Title</th>
+      <th>UNHM Course</th>
+      <th>Approved Status</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Course in object_list %}
+    {% for Transferevaluation in object_list %}
+
+    <tr>
+    <th>{{ course.subject_number}}</th>
+    <th>{{ course.title}}</th>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+
+</tbody>
+</table>
+
+
+{% endblock content %}

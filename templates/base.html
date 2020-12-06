@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UNHM Transer Credit </title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  </head>
+  <body>
+    <header>
+       <a href="{% url 'home' %}" title="Home" rel="home" id="logo">
+          <img src="https://paulcollege.unh.edu/cep/sites/paulcollege.unh.edu.cep/themes/cep/logo.png" alt="Home">
+          <a href="http://127.0.0.1:8000/admin" class="login-btn">login</a>
+    </header>
+ <nav class="navbar">
+   <ul>
+     <li><a href="https://manchester.unh.edu/">UNHM - Home</a></li>
+     <li><a href="{% url 'home' %}">Transfer Credit Course Database</a></li>
+   </ul>
+ </nav>
+{% block content %}
+{% endblock content %}
+  </body>
+</html>

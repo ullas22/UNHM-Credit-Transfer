@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<form method="get" action="search/">
+    <input  id="search_box" type="text" name="search_box">
+    <button type="submit">Search</button>
+</form>
+
+<h1>Course</h1>
+
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>course_id</th>
+      <th>subject_number</th>
+      <th>title</th>
+      <th>school_ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in object_list %}
+    <tr>
+    <th>{{ course.course_id}}</th>
+    <th>{{ course.subject_number}}</th>
+    <th>{{ course.title}}</th>
+    <th>{{course.school_id}}</th>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

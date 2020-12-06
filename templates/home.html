@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+  <head>
+</head>
+<body style="background-color:LightYellow;">
+      <div style="font-size: 14px;line-height: 1.6;margin: 20px 0; text-align: left;">
+      <p><u>Transfer Credit Policies:</u></p>
+      <ul>
+      <li>Only those transfer credit courses that carry a grade of "C" or better can be accepted.</li>
+      <li>No failed business requirements taken at UNHM may be repeated from another school.</li>
+      <li>Students have up to one semester after matriculation to reconcile transfer credit.</li>
+      <li>Students who are candidates for a bachelor’s degree must attain the last one-quarter of total credits for the degree (generally 32 credits) at the University of New Hampshire as a matriculated student (this is the “Senior Residency Requirement”). Students seeking to transfer credits that fall into this range must petition through their Dean’s office, unless they are taking these credits through the UNH Study Abroad or NSE Programs.</li>
+      </ul>
+      </div>
+      <div class="selectschool">
+
+          <select>
+          <option disabled="true" ,unique="true" selected>--Select State--</option>
+          {% for school in object_list %}
+            <option value="{{school.state_name}}">{{school.state_name}}</option>
+            {%endfor%}
+        </select>
+        <form action="result/">
+          <select>
+            <option disabled="true" ,unique="true" selected>--Select School from the DropDown--</option>
+            {% for school in object_list %}
+              <option value="{{school.school_name}}">{{school.school_name}}</option>
+              {%endfor%}
+
+        </select>
+        <input type="submit" value="Go"/>
+</form>
+      </div>
+  </body>
+</html>
+{% endblock content %}
